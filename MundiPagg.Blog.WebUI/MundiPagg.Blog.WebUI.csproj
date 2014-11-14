@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\NET40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\..\libraries\Ninject\Ninject.dll</HintPath>
     </Reference>
@@ -220,6 +223,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MundiPagg.Blog.Domain\MundiPagg.Blog.Domain.csproj">
+      <Project>{8704da0e-e411-469c-9ee9-72f5af944817}</Project>
+      <Name>MundiPagg.Blog.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MundiPagg.Blog.Repository\MundiPagg.Blog.Repository.csproj">
+      <Project>{f5fb5b88-060a-471f-94ed-c76f5111c735}</Project>
+      <Name>MundiPagg.Blog.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MundiPagg.Blog.Service\MundiPagg.Blog.Service.csproj">
+      <Project>{f8f88dc1-dcef-418c-89dc-5f47a961474a}</Project>
+      <Name>MundiPagg.Blog.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
