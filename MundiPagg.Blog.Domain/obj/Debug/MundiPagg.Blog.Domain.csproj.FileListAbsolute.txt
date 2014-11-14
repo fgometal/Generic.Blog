@@ -1,0 +1,8 @@
+C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Domain\bin\Debug\MundiPagg.Blog.Domain.dll
+C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Domain\bin\Debug\MundiPagg.Blog.Domain.pdb
+C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Domain\bin\Debug\Ninject.dll
+C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Domain\bin\Debug\Ninject.pdb
+C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Domain\bin\Debug\Ninject.xml
+C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Domain\obj\Debug\MundiPagg.Blog.Domain.dll
+C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Domain\obj\Debug\MundiPagg.Blog.Domain.pdb
+C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Domain\obj\Debug\MundiPagg.Blog.Domain.csprojResolveAssemblyReference.cache
