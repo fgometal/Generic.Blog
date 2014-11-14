@@ -15,6 +15,7 @@ namespace MundiPagg.Blog.Domain.Entities
         public string LastName { get; set; }
         public string AboutMe { get; set; }
         public bool IsAdmin { get; set; }
+        public bool IsActive { get; set; }
         public DateTime DateRegistered { get; set; }
     }
 }

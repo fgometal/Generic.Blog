@@ -7,12 +7,12 @@ using MundiPagg.Blog.Domain.Entities;
 
 namespace MundiPagg.Blog.Repository.Interfaces
 {
-    public interface IUserRepository
+    public interface IPostRepository
     {
-        IQueryable<User> Users { get; }
+        IQueryable<Post> Posts { get; }
 
-        User GetById(int id);
-        void Save(User user);
-        void Delete(User user);
+        Post GetById(int id);
+        void Save(Post post);
+        void Delete(Post post);
     }
 }

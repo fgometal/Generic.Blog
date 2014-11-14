@@ -11,29 +11,29 @@ using MundiPagg.Blog.Service.Interfaces;
 
 namespace MundiPagg.Blog.Service
 {
-    public class UserService : IUserService
+    public class PostCommentaryService : IPostCommentaryService
     {
-        private IUserRepository _repository;
+        private IPostCommentaryRepository _repository;
 
         [Inject]
-        public UserService(IUserRepository repository)
+        public PostCommentaryService(IPostCommentaryRepository repository)
         {
             _repository = repository;
         }
 
-        public User GetById(int id)
+        public PostCommentary GetById(int id)
         {
             return _repository.GetById(id);
         }
 
-        public void Save(User user)
+        public void Save(PostCommentary commentary)
         {
-            _repository.Save(user);
+            _repository.Save(commentary);
         }
 
-        public void Delete(User user)
+        public void Delete(PostCommentary commentary)
         {
-            _repository.Delete(user);
+            _repository.Delete(commentary);
         }
     }
 }

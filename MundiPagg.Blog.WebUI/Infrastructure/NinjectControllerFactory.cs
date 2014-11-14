@@ -1,11 +1,13 @@
-﻿using Moq;
-using Ninject;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
+
+using Moq;
+using Ninject;
+
 using MundiPagg.Blog.Repository.Interfaces;
 using MundiPagg.Blog.Domain.Entities;
 using MundiPagg.Blog.Repository;
@@ -38,7 +40,11 @@ namespace MundiPagg.Blog.WebUI.Infrastructure
                 // put additional bindings here
                 MockEmAll();
                 //ninjectKernel.Bind<IUserRepository>().To<UserRepository>();
+                //ninjectKernel.Bind<IPostRepository>().To<PostRepository>();
+                //ninjectKernel.Bind<IPostCommentaryRepository>().To<PostCommentaryRepository>();
                 //ninjectKernel.Bind<IUserService>().To<UserService>();   
+                //ninjectKernel.Bind<IPostService>().To<PostService>();
+                //ninjectKernel.Bind<IPostCommentaryService>().To<PostCommentaryService>();
             }
 
             #endregion

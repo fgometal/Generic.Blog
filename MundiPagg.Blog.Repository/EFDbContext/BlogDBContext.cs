@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using System.Data.Entity;
+
 using MundiPagg.Blog.Domain.Entities;
 
 namespace MundiPagg.Blog.Repository.EFDbContext
@@ -11,5 +11,7 @@ namespace MundiPagg.Blog.Repository.EFDbContext
     public class BlogDBContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<PostCommentary> Commentaries { get; set; }
     }
 }

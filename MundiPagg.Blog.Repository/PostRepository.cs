@@ -9,26 +9,26 @@ using MundiPagg.Blog.Repository.EFDbContext;
 
 namespace MundiPagg.Blog.Repository
 {
-    public class UserRepository : IUserRepository
+    public class PostRepository : IPostRepository
     {
         private BlogDBContext context = new BlogDBContext();
 
-        public IQueryable<User> Users
+        public IQueryable<Post> Posts
         {
-            get { return context.Users; }
+            get { return context.Posts; }
         }
 
-        public User GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save(User user)
+        public Post GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(User user)
+        public void Save(Post post)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Post post)
         {
             throw new NotImplementedException();
         }
