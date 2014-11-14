@@ -6,20 +6,11 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using MundiPagg.Blog.WebUI.Models;
-using MundiPagg.Blog.Service.Interfaces;
-using Ninject;
 
 namespace MundiPagg.Blog.WebUI.Controllers
 {
     public class AccountController : Controller
     {
-        private IUserService _userService;
-
-        [Inject]
-        public AccountController(IUserService userService)
-        {
-            _userService = userService;
-        }
 
         //
         // GET: /Account/LogOn
