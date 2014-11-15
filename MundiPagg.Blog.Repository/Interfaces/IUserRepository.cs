@@ -13,6 +13,7 @@ namespace MundiPagg.Blog.Repository.Interfaces
 
         User GetById(int id);
         void Save(User user);
+        void Update(User user);
         void Delete(User user);
     }
 }

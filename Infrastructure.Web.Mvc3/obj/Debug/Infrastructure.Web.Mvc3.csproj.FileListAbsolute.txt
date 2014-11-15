@@ -1,0 +1,16 @@
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure\bin\Debug\Infrastructure.Web.Mvc3.dll
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure\bin\Debug\Infrastructure.Web.Mvc3.pdb
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure\bin\Debug\Ninject.dll
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure\bin\Debug\Ninject.pdb
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure\bin\Debug\Ninject.xml
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure\obj\Debug\Infrastructure.Web.Mvc3.dll
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure\obj\Debug\Infrastructure.Web.Mvc3.pdb
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure\obj\Debug\Infrastructure.Web.Mvc3.csprojResolveAssemblyReference.cache
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure.Web.Mvc3\bin\Debug\Infrastructure.Web.Mvc3.dll
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure.Web.Mvc3\bin\Debug\Infrastructure.Web.Mvc3.pdb
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure.Web.Mvc3\bin\Debug\Ninject.dll
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure.Web.Mvc3\bin\Debug\Ninject.pdb
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure.Web.Mvc3\bin\Debug\Ninject.xml
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure.Web.Mvc3\obj\Debug\Infrastructure.Web.Mvc3.dll
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure.Web.Mvc3\obj\Debug\Infrastructure.Web.Mvc3.pdb
+C:\DotNet\Workspace\MundiPagg.Blog\Infrastructure.Web.Mvc3\obj\Debug\Infrastructure.Web.Mvc3.csprojResolveAssemblyReference.cache

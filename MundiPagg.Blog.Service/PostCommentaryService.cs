@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using Ninject;
-
 using MundiPagg.Blog.Domain.Entities;
 using MundiPagg.Blog.Repository.Interfaces;
 using MundiPagg.Blog.Service.Interfaces;
+using MundiPagg.Blog.Repository;
 
 namespace MundiPagg.Blog.Service
 {
     public class PostCommentaryService : IPostCommentaryService
     {
-        private IPostCommentaryRepository _repository;
+        private IPostCommentaryRepository _repository = new PostCommentaryRepository();
 
-        [Inject]
-        public PostCommentaryService(IPostCommentaryRepository repository)
+        public List<PostCommentary> GetAll()
         {
-            _repository = repository;
+            return _repository.Commentaries.ToList();
         }
 
         public PostCommentary GetById(int id)

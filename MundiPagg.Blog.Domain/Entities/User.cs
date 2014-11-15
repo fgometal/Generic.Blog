@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MundiPagg.Blog.Domain.Entities
 {
+    [Table("User")]
     public class User
     {
+        [Key]
         public int UserId { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }

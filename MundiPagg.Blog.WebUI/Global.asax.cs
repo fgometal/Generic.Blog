@@ -6,8 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-
-using MundiPagg.Blog.WebUI.Infrastructure;
+using Infrastructure.Web.Mvc3;
+using MundiPagg.Blog.Service;
+using MundiPagg.Blog.Service.Interfaces;
+using Ninject;
 
 namespace MundiPagg.Blog.WebUI
 {
@@ -39,11 +41,30 @@ namespace MundiPagg.Blog.WebUI
 
             // Use LocalDB for Entity Framework by default
             //Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
+            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Directory.GetCurrentDirectory());
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-
-            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+            
+            SetupDependencyInjection();
         }
+
+        #region Dependency Injection
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void SetupDependencyInjection()
+        {
+            IKernel kernel = new StandardKernel();
+
+            kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<IPostService>().To<PostService>();
+            kernel.Bind<IPostCommentaryService>().To<PostCommentaryService>();
+
+            DependencyResolver.SetResolver(new NinjectDependecyResolver(kernel));
+        }
+
+        #endregion
     }
 }

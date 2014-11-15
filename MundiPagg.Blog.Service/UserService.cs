@@ -1,36 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using Ninject;
-
 using MundiPagg.Blog.Domain.Entities;
 using MundiPagg.Blog.Repository.Interfaces;
 using MundiPagg.Blog.Service.Interfaces;
+using MundiPagg.Blog.Repository;
 
 namespace MundiPagg.Blog.Service
 {
     public class UserService : IUserService
     {
-        private IUserRepository _repository;
+        private IUserRepository _repository = new UserRepository();
 
-        [Inject]
-        public UserService(IUserRepository repository)
+        public List<User> GetAll()
         {
-            _repository = repository;
+            return _repository.Users.ToList();
         }
-
         public User GetById(int id)
         {
             return _repository.GetById(id);
         }
-
         public void Save(User user)
         {
             _repository.Save(user);
         }
-
+        public void Update(User user)
+        {
+            _repository.Update(user);
+        }
         public void Delete(User user)
         {
             _repository.Delete(user);
