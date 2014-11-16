@@ -26,12 +26,17 @@ namespace MundiPagg.Blog.Service
             _repository.Save(post);
         }
 
+        public void Update(Post post)
+        {
+            _repository.Update(post);
+        }
+
         public void Delete(Post post)
         {
             _repository.Delete(post);
         }
 
-        public List<Post> GetPostPaginated(int page, int pageSize)
+        public List<Post> GetPostsPaginated(int page, int pageSize)
         {
             return GetAll()
                 .OrderByDescending(post => post.PublishDate)

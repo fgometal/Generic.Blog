@@ -111,10 +111,16 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\MailModel.cs" />
+    <Compile Include="Models\PagingInfoModel.cs" />
+    <Compile Include="Models\IndexViewModel.cs" />
+    <Compile Include="Models\PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -122,9 +128,20 @@
     <Content Include="Content\Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\Bootstrap\css\bootstrap.css" />
     <Content Include="Content\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Bootstrap\css\clean-blog.css" />
+    <Content Include="Content\Bootstrap\css\clean-blog.min.css" />
     <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Bootstrap\img\about-bg.jpg" />
+    <Content Include="Content\Bootstrap\img\contact-bg.jpg" />
+    <Content Include="Content\Bootstrap\img\home-bg.jpg" />
+    <Content Include="Content\Bootstrap\img\post-bg.jpg" />
+    <Content Include="Content\Bootstrap\img\post-sample-image.jpg" />
     <Content Include="Content\Bootstrap\js\bootstrap.js" />
     <Content Include="Content\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Bootstrap\js\clean-blog.js" />
+    <Content Include="Content\Bootstrap\js\clean-blog.min.js" />
+    <Content Include="Content\Bootstrap\js\jquery.js" />
+    <Content Include="Content\Bootstrap\js\jquery.min.js" />
     <Content Include="Content\Bootstrap\js\npm.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -186,12 +203,16 @@
     <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Bootstrap\less\clean-blog.less" />
+    <Content Include="Content\Bootstrap\less\mixins.less" />
+    <Content Include="Content\Bootstrap\less\variables.less" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
@@ -226,6 +247,8 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Post.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

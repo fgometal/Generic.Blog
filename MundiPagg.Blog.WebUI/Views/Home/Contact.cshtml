@@ -1,0 +1,118 @@
+﻿@model MundiPagg.Blog.WebUI.Models.MailModel
+@{
+    ViewBag.Title = "Entre em contato!";
+}
+
+<script>
+
+    $(document).ready(function () {
+        $("#name").attr("data-validation-required-message", "Please enter your name.");
+    });
+
+    // Bagunçando e experimentando com Jquery Ajax...
+
+    // Handle "Edit Person" button click.
+    // This will make an ajax call, get information for person,
+    // put it all in the modal and display it
+    //$(document).on('click', '.btn-trigger-modal', function () {
+    //    var personId = $(this).data('id');
+    //    $.ajax({
+    //        url: '/Mail/SendMail',
+    //        type: 'GET',
+    //        data: { id: personId },
+    //        success: function (data) {
+    //            $('#modal-person').html(data).modal('show');
+    //        }
+    //    });
+    //});
+
+    // Handle submitting of new information for Person.
+    // This will attempt to save new info
+    // If save was successful, it will close the Modal and reload page to see updated info
+    // Otherwise it will only reload contents of the Modal    
+    //$(document).on('click', '.btn-trigger-modal', function () {
+    $(document).on('click', '#sendMail', function () {
+        var self = $(this);
+        $.ajax({
+            url: '/Mail/SendMail',
+            type: 'POST',
+            data: self.closest('form').serialize(),
+            success: function (data) {
+                if (data.success == true) {
+                    $('#modal-person').modal('hide');
+                    location.reload(false)
+                } else {
+                    $('#modal-person').html(data);
+                }
+            }
+        });
+    });
+
+</script>
+
+<!-- Header -->
+<header class="intro-header" style="background-image: url('@Href("~/Content/Bootstrap/img", "contact-bg.jpg")')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="page-heading">
+                    <h1>@ViewBag.Title</h1>
+                    <hr class="small">
+                    <span class="subheading">Tem perguntas? Eu tenho respostas. (talvez).</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    @using (Html.BeginForm("SendMail", "Mail", FormMethod.Post, new { @id = "formMail" }))
+    {
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Querendo trocar uma idéia? Sugestões? Críticas? Preencha o formulário abaixo e aguarde que entrarei em contato.</p>
+
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Name</label>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Name", @id = "name", @required = "required" })
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Email Address</label>
+                        @Html.TextBoxFor(model => model.Mail, new { @class = "form-control", @placeholder = "Email Address", id = "email", @required = "required" })
+                        @*<input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">*@
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Phone Number</label>
+                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @placeholder = "Phone Number", @id = "phone", @required = "required" })
+                        @*<input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">*@
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Message</label>
+                        @Html.TextAreaFor(model => model.Message, new { @rows = "5", @class = "form-control", @placeholder = "Message", @id = "message", @required = "required" })
+                        @*<textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>*@
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <br>
+                @Html.ValidationSummary();
+                <div id="success"></div>
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <button type="submit" class="btn btn-default" id="sendMail">Enviar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

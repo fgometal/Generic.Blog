@@ -194,6 +194,45 @@ namespace MundiPagg.Blog.UnitTests.Controllers
 
         #endregion
 
+        #region PostService Tests
+
+        [TestMethod]
+        public void GetPosts()
+        {
+        }
+
+        [TestMethod]
+        public void AddPost()
+        {
+        }
+
+        [TestMethod]
+        public void EditPost()
+        {
+        }
+
+        [TestMethod]
+        public void DeletePost()
+        {
+        }
+
+        [TestMethod]
+        public void AddCommentToPost()
+        {
+        }
+
+        [TestMethod]
+        public void EditCommentOnPost()
+        {
+        }
+
+        [TestMethod]
+        public void DeleteCommentFromPost()
+        {
+        }
+
+        #endregion
+
         #region Test Initializers
 
         private void AddUsers()

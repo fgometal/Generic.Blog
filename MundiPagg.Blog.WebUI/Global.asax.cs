@@ -28,6 +28,18 @@ namespace MundiPagg.Blog.WebUI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                null,
+                "Page/{page}",
+                new { Controller = "Home", action = "Index" }
+            );
+
+            routes.MapRoute(
+                null,
+                "Post/{postId}",
+                new { Controller = "Home", action = "ViewPost" }
+            );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
@@ -41,11 +53,11 @@ namespace MundiPagg.Blog.WebUI
 
             // Use LocalDB for Entity Framework by default
             //Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
-            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Directory.GetCurrentDirectory());
+            //AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Directory.GetCurrentDirectory());
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-            
+
             SetupDependencyInjection();
         }
 

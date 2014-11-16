@@ -1,8 +1,35 @@
 ﻿@{
-    ViewBag.Title = "About Us";
+    ViewBag.Title = "Sobre o blog";
 }
 
-<h2>About</h2>
-<p>
-     Put content here.
-</p>
+<!-- Header -->
+<header class="intro-header" style="background-image: url('@Href("~/Content/Bootstrap/img", "about-bg.jpg")')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="page-heading">
+                    <h1>@ViewBag.Title</h1>
+                    <hr class="small">
+                    <span class="subheading">Como isso foi feito?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <p>Um blog de teste de competências construído em ASP Net MVC 3.</p>
+            <p>Utilizando Entity Framework como ORM.</p>
+            <p>Ninject para injeção de depêndencia.</p>
+            <p>Local DB (SQL Express) para base de testes.</p>
+            <p>Moq como ferramenta de mock para os testes unitários.</p>
+            <p>Bootstrap como framework de layout, design e comportamento visual.</p>
+            <p>Tema Clean Blog de Start Bootstrap. <br />Disponível em: <br />
+               <a href="http://startbootstrap.com/template-overviews/clean-blog/" 
+                   style="text-decoration: none; color: blue;">http://startbootstrap.com/template-overviews/clean-blog/</a>
+            </p>
+        </div>
+    </div>
+</div>

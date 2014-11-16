@@ -11,7 +11,8 @@ namespace MundiPagg.Blog.Service.Interfaces
         List<Post> GetAll();
         Post GetById(int id);
         void Save(Post post);
+        void Update(Post post);
         void Delete(Post post);
-        List<Post> GetPostPaginated(int page, int pageSize);
+        List<Post> GetPostsPaginated(int page, int pageSize);
     }
 }

@@ -1,8 +1,56 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using MundiPagg.Blog.WebUI.HtmlHelpers
+@model MundiPagg.Blog.WebUI.Models.IndexViewModel
+@{
+    ViewBag.Title = "MundiPagg Blog";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<!-- Header -->
+<header class="intro-header" style="background-image: url('@Href("~/Content/Bootstrap/img", "home-bg.jpg")')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>@ViewBag.Title</h1>
+                    <hr class="small">
+                    <span class="subheading">Um blog de testes desenvolvido para a MundiPagg</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            @if (Model.Posts.Any())
+            {
+                foreach (var item in Model.Posts)
+                {
+                <div class="post-preview">
+                    <a href="/Post/@item.PostId">
+                        <h2 class="post-title">@item.Title</h2>
+                        <h3 class="post-subtitle">@item.Summary</h3>
+                    </a>
+                    <p class="post-meta">@item.PostedBy</p>
+                </div>
+                <hr />
+                }
+                
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x }))
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <div class="post-preview">
+                    <h2 class="post-title">Nenhum resultado :(</h2>
+                    <h3 class="post-subtitle">Parece que não existem posts a serem exibidos.</h3>
+                </div>
+            }
+        </div>
+    </div>
+</div>
