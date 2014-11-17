@@ -34,3 +34,6 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\obj\Debug\MundiPagg.Blog
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\obj\Debug\MundiPagg.Blog.WebUI.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Infrastructure.Web.Mvc3.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Infrastructure.Web.Mvc3.pdb
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.dll
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.Net4.dll
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.xml

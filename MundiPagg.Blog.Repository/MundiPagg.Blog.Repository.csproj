@@ -56,10 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseRepository.cs" />
     <Compile Include="DatabaseContext\BlogDBContext.cs" />
-    <Compile Include="Interfaces\IPostCommentaryRepository.cs" />
-    <Compile Include="Interfaces\IPostRepository.cs" />
-    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="DatabaseContext\DbInstance.cs" />
+    <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="PostCommentaryRepository.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

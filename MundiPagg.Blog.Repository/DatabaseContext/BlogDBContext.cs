@@ -10,14 +10,20 @@ namespace MundiPagg.Blog.Repository.DatabaseContext
 {
     public class BlogDBContext : DbContext
     {
-        static BlogDBContext()
-        {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BlogDBContext>());
-        }
-
         public DbSet<User> Users { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostCommentary> Commentaries { get; set; }
+
+        static BlogDBContext()
+        {
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BlogDBContext>());
+            //Configuration.ValidateOnSaveEnabled = false;
+        }
+
+        public virtual void DatabaseDispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MundiPagg.Blog.Service.Interfaces;
 using MundiPagg.Blog.Service;
 using MundiPagg.Blog.Domain.Entities;
 using MundiPagg.Blog.WebUI.Models;
 using System.Globalization;
+using MundiPagg.Blog.WebUI.CustomController;
+using Ninject;
 
 namespace MundiPagg.Blog.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BlogController //Controller
     {
-        private readonly IPostService _service;
-        private const int pageSize = 4;
+        [Inject]
+        public PostService _service { get; set; }
 
-        public HomeController(IPostService postService)
-        {
-            _service = postService;
-        }
+        private const int pageSize = 4;
 
         public ActionResult Index(int page = 1)
         {

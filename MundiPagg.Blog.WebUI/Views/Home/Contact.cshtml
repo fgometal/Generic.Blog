@@ -104,3 +104,8 @@
         </div>
     </form>
 </div>
+
+@using (@Html.BeginForm("SendMail", "Mail", FormMethod.Post))
+{
+    <button type="submit" class="">Send</button>
+} 

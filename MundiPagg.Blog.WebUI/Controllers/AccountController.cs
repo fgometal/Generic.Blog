@@ -6,20 +6,18 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using MundiPagg.Blog.WebUI.Models;
-using MundiPagg.Blog.Service.Interfaces;
 using Ninject;
+using MundiPagg.Blog.WebUI.CustomController;
+using MundiPagg.Blog.WebUI.CustomSessionControl;
+using AutoMapper;
+using MundiPagg.Blog.Service;
 
 namespace MundiPagg.Blog.WebUI.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BlogController //Controller
     {
-        private IUserService _userService;
-
         [Inject]
-        public AccountController(IUserService userService)
-        {
-            _userService = userService;
-        }
+        public UserService _service { get; set; }
 
         //
         // GET: /Account/LogOn
@@ -43,16 +41,22 @@ namespace MundiPagg.Blog.WebUI.Controllers
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
+                        var user = _service.GetByLogin(model.UserName);
+                        SessionHelper.User = Mapper.Map<MundiPagg.Blog.Domain.Entities.User>(user);
+
                         return Redirect(returnUrl);
                     }
                     else
                     {
+                        var user = _service.GetByLogin(model.UserName);
+                        SessionHelper.User = Mapper.Map<MundiPagg.Blog.Domain.Entities.User>(user);
+
                         return RedirectToAction("Index", "Home");
                     }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "Usuário e / ou senha incorretos.");
                 }
             }
 
@@ -66,6 +70,7 @@ namespace MundiPagg.Blog.WebUI.Controllers
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
+            SessionHelper.CleanSession();
 
             return RedirectToAction("Index", "Home");
         }
@@ -92,6 +97,25 @@ namespace MundiPagg.Blog.WebUI.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
+                    // Adicionar usuário ao banco
+                    var user = new MundiPagg.Blog.Domain.Entities.User
+                    {
+                        Login = model.UserName,
+                        Email = model.Email,
+                        FirstName = model.UserName,
+                        LastName = string.Empty,
+                        Password = string.Empty,
+                        IsAdmin = false,
+                        IsActive = true,
+                        AboutMe = string.Empty,
+                        DateRegistered = DateTime.Now
+                    };
+
+                    _service.Save(user);
+
+                    user = _service.GetByLogin(model.UserName);
+                    SessionHelper.User = Mapper.Map<MundiPagg.Blog.Domain.Entities.User>(user);
+
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }

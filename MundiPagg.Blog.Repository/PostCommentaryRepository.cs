@@ -8,28 +8,7 @@ using MundiPagg.Blog.Repository.DatabaseContext;
 
 namespace MundiPagg.Blog.Repository
 {
-    public class PostCommentaryRepository : IPostCommentaryRepository
+    public class PostCommentaryRepository : BaseRepository<PostCommentary>
     {
-        private BlogDBContext context = new BlogDBContext();
-
-        public IQueryable<PostCommentary> Commentaries
-        {
-            get { return context.Commentaries; }
-        }
-
-        public PostCommentary GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save(PostCommentary commentary)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(PostCommentary commentary)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

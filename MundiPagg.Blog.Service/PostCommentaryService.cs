@@ -2,18 +2,19 @@
 using System.Linq;
 using MundiPagg.Blog.Domain.Entities;
 using MundiPagg.Blog.Repository.Interfaces;
-using MundiPagg.Blog.Service.Interfaces;
 using MundiPagg.Blog.Repository;
+using Ninject;
 
 namespace MundiPagg.Blog.Service
 {
-    public class PostCommentaryService : IPostCommentaryService
+    public class PostCommentaryService
     {
-        private IPostCommentaryRepository _repository = new PostCommentaryRepository();
+        [Inject]
+        public PostCommentaryRepository _repository { get; set; }
 
         public List<PostCommentary> GetAll()
         {
-            return _repository.Commentaries.ToList();
+            return _repository.FetchAll.ToList();
         }
 
         public PostCommentary GetById(int id)
@@ -23,7 +24,14 @@ namespace MundiPagg.Blog.Service
 
         public void Save(PostCommentary commentary)
         {
-            _repository.Save(commentary);
+            _repository.Add(commentary);
+            _repository.Save();
+        }
+
+        public void Update(PostCommentary commentary)
+        {
+            _repository.Edit(commentary);
+            _repository.Save();
         }
 
         public void Delete(PostCommentary commentary)

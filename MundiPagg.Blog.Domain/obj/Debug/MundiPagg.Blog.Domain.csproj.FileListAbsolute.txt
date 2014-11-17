@@ -10,4 +10,3 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Domain\bin\Debug\MundiPagg.Blo
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Domain\bin\Debug\MundiPagg.Blog.Domain.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Domain\obj\Debug\MundiPagg.Blog.Domain.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Domain\obj\Debug\MundiPagg.Blog.Domain.pdb
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Domain\obj\Debug\MundiPagg.Blog.Domain.csprojResolveAssemblyReference.cache

@@ -46,9 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IPostCommentaryService.cs" />
-    <Compile Include="Interfaces\IPostService.cs" />
-    <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="PostCommentaryService.cs" />
     <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

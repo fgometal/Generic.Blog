@@ -23,3 +23,5 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\Infrastruc
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\Infrastructure.Web.Mvc3.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\EntityFramework.SqlServer.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\EntityFramework.SqlServer.xml
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\AutoMapper.dll
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\AutoMapper.xml

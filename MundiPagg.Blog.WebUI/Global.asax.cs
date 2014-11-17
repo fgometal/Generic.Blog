@@ -7,8 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Infrastructure.Web.Mvc3;
+using MundiPagg.Blog.Domain.Entities;
 using MundiPagg.Blog.Service;
-using MundiPagg.Blog.Service.Interfaces;
 using Ninject;
 
 namespace MundiPagg.Blog.WebUI
@@ -50,14 +50,9 @@ namespace MundiPagg.Blog.WebUI
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
-            // Use LocalDB for Entity Framework by default
-            //Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
             //AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Directory.GetCurrentDirectory());
-
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-
             SetupDependencyInjection();
         }
 
@@ -69,11 +64,6 @@ namespace MundiPagg.Blog.WebUI
         public void SetupDependencyInjection()
         {
             IKernel kernel = new StandardKernel();
-
-            kernel.Bind<IUserService>().To<UserService>();
-            kernel.Bind<IPostService>().To<PostService>();
-            kernel.Bind<IPostCommentaryService>().To<PostCommentaryService>();
-
             DependencyResolver.SetResolver(new NinjectDependecyResolver(kernel));
         }
 

@@ -6,15 +6,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using MundiPagg.Blog.Domain.Entities;
 using MundiPagg.Blog.Service;
-using MundiPagg.Blog.Service.Interfaces;
 using MundiPagg.Blog.WebUI.Controllers;
+using Ninject;
 
 namespace MundiPagg.Blog.UnitTests.Controllers
 {
     [TestClass]
     public class HomeControllerTest
     {
-        private IUserService _service = new UserService();
+        [Inject]
+        public UserService _service { get; set; }
         private List<User> users;
         private List<Post> posts;
 
@@ -32,11 +33,12 @@ namespace MundiPagg.Blog.UnitTests.Controllers
         public void Index()
         {
             // Arrange
-            Mock<IPostService> mock = new Mock<IPostService>();
+            Mock<PostService> mock = new Mock<PostService>();
             mock.Setup(m => m.GetAll()).Returns(posts);
             //mock.Setup(m => m.GetAll()).Returns(posts.AsQueryable());
 
-            HomeController controller = new HomeController(mock.Object);
+            //HomeController controller = new HomeController(mock.Object);
+            HomeController controller = new HomeController();
             var pageSize = 3;
 
             // Act
@@ -60,11 +62,12 @@ namespace MundiPagg.Blog.UnitTests.Controllers
         [TestMethod]
         public void About()
         {
-            Mock<IPostService> mock = new Mock<IPostService>();
+            Mock<PostService> mock = new Mock<PostService>();
             mock.Setup(m => m.GetAll()).Returns(posts);
             //mock.Setup(m => m.GetAll()).Returns(posts.AsQueryable());
             // Arrange
-            HomeController controller = new HomeController(mock.Object);
+            //HomeController controller = new HomeController(mock.Object);
+            HomeController controller = new HomeController();
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -81,7 +84,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
         public void GetUsers()
         {
             //Arrange
-            Mock<IUserService> mock = new Mock<IUserService>();
+            Mock<UserService> mock = new Mock<UserService>();
             mock.Setup(m => m.GetAll()).Returns(users);
 
             //Act
@@ -109,7 +112,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
                 DateRegistered = new DateTime(2014, 11, 14)
             };
 
-            Mock<IUserService> mock = new Mock<IUserService>();
+            Mock<UserService> mock = new Mock<UserService>();
             mock.Setup(m => m.Save(user)).Verifiable("Usuário já existe");
 
             // Act
@@ -136,7 +139,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
                 DateRegistered = new DateTime(2014, 11, 14)
             };
 
-            Mock<IUserService> mock = new Mock<IUserService>();
+            Mock<UserService> mock = new Mock<UserService>();
             mock.Setup(m => m.Save(user)).Verifiable("Usuário já existe");
 
             // Act
@@ -150,7 +153,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
         public void CanUpdateUser()
         {
             //Arrange
-            Mock<IUserService> mock = new Mock<IUserService>();
+            Mock<UserService> mock = new Mock<UserService>();
             mock.Setup(m => m.GetById(2)).Returns(users.FirstOrDefault(x => x.UserId == 2));
 
             //Act
@@ -167,7 +170,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
         {
             //Arrange
             var user = users.FirstOrDefault(x => x.UserId == 2);            
-            Mock<IUserService> mock = new Mock<IUserService>();
+            Mock<UserService> mock = new Mock<UserService>();
             mock.Setup(m => m.Delete(user)).Verifiable("Não foi possível excluir usuário");
 
             // Act
@@ -182,7 +185,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
         {
             //Arrange
             var user = users.FirstOrDefault(x => x.UserId == 4);
-            Mock<IUserService> mock = new Mock<IUserService>();
+            Mock<UserService> mock = new Mock<UserService>();
             mock.Setup(m => m.Delete(user)).Verifiable("Não foi possível excluir usuário");
 
             // Act
