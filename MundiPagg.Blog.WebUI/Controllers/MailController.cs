@@ -17,28 +17,16 @@ namespace MundiPagg.Blog.WebUI.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public JsonResult SendMail(MailModel model)
-        [HttpPost]
-        public ActionResult SendMail(MailModel model)
+        public JsonResult SendMail(MailModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var result = "";
-
-                if (model != null)
-                    result = "{ true }";
-                else
-                    result = "{ false }";
+            if (model != null)
+            { 
             }
 
-            return View("Index");
-           // return Json(result);
-
-            //return Json(
-            //    result,
-            //    "",
-            //    JsonRequestBehavior.AllowGet);
+            return Json(
+                new { success = true },
+                "",
+                JsonRequestBehavior.AllowGet);
         }
     }
 }
