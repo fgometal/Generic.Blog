@@ -19,49 +19,50 @@
 </header>
 
 <div class="container">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p>
-            Entre com seu nome e senha. @Html.ActionLink("Registre-se", "Register") Se ainda não tem uma conta.
-        </p>
-        @Html.ValidationSummary(true, "Não foi possível efetuar o login. Corrija os erros e tente novamente.")
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 col-md-10 col-md-offset-1">
+            <p>
+                Entre com seu nome e senha. @Html.ActionLink("Registre-se", "Register") Se ainda não tem uma conta.
+            </p>
+            @Html.ValidationSummary(true, "Não foi possível efetuar o login. Corrija os erros e tente novamente.")
+
+
+            @using (Html.BeginForm())
+            {
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(m => m.UserName, new { @placeholder = "Login" })
+                        <p class="help-block text-danger">
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password, new { @placeholder = "Senha" })
+                        <p class="help-block text-danger">
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        @Html.LabelFor(m => m.RememberMe)
+                        @Html.CheckBoxFor(m => m.RememberMe) Lembrar de mim?
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <button type="submit" class="btn btn-default">Enviar</button>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
-
-    @using (Html.BeginForm())
-    {
-            <div class="row control-group">
-                <div class="form-group col-xs-12 floating-label-form-group controls">
-                    @Html.LabelFor(m => m.UserName)
-                    @Html.TextBoxFor(m => m.UserName, new { @placeholder="Login"})
-                    <p class="help-block text-danger">
-                        @Html.ValidationMessageFor(m => m.UserName)
-                    </p>
-                </div>
-            </div>
-
-            <div class="row control-group">
-                <div class="form-group col-xs-12 floating-label-form-group controls">
-                    @Html.LabelFor(m => m.Password)
-                    @Html.PasswordFor(m => m.Password, new { @placeholder="Senha"})
-                    <p class="help-block text-danger">
-                        @Html.ValidationMessageFor(m => m.Password)
-                    </p>
-                </div>
-            </div>
-
-            <div class="row control-group">
-                <div class="form-group col-xs-12 floating-label-form-group controls">
-                    @Html.LabelFor(m => m.RememberMe)
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                </div>
-            </div>
-            @*<div class="editor-label">
-                
-            </div>*@
-
-            <div class="row">
-                <div class="form-group col-xs-12">
-                    <button type="submit" class="btn btn-default">Enviar</button>
-                </div>
-            </div>
-    }
 </div>

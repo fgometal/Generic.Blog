@@ -19,6 +19,19 @@
     </div>
 </header>
 
+@{
+    var display = "display: none;";
+
+    if (ViewBag.Notification)
+    {
+        display = "display: block;";
+    }   
+}
+
+<div style="@display">
+    <p>@ViewBag.NotificationMessage</p>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -28,7 +41,7 @@
                 foreach (var item in Model.Posts)
                 {
                 <div class="post-preview">
-                    <a href="/Post/@item.PostId">
+                    <a href="/Post/View/@item.PostId">
                         <h2 class="post-title">@item.Title</h2>
                         <h3 class="post-subtitle">@item.Summary</h3>
                     </a>

@@ -45,8 +45,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { page = 1 }, null)</li>
                     <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Post aleatório", "SamplePost", "Home")</li>
                     <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+
+                    @if(Request.IsAuthenticated) {
+                        <li>@Html.ActionLink("Novo Post +", "Edit", "Post")</li>
+                        <li>@Html.ActionLink("Listar Posts", "List", "Post", new { page = 1 }, null)</li>
+                    }
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

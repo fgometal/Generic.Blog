@@ -37,6 +37,7 @@ namespace MundiPagg.Blog.Service
         public void Delete(Post post)
         {
             _repository.Delete(post);
+            _repository.Save();
         }
 
         public List<Post> GetPostsPaginated(int page, int pageSize)
@@ -45,6 +46,13 @@ namespace MundiPagg.Blog.Service
                 .OrderByDescending(post => post.PublishDate)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
+                .ToList();
+        }
+
+        public List<Post> GetPostsByUserId(int page, int pageSize, int userId)
+        {
+            return GetPostsPaginated(page, pageSize)
+                .Where(post => post.User.UserId == userId)
                 .ToList();
         }
     }

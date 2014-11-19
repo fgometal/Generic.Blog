@@ -12,15 +12,17 @@ using Ninject;
 
 namespace MundiPagg.Blog.WebUI.Controllers
 {
-    public class HomeController : BlogController //Controller
+    public class HomeController : BlogController
     {
         [Inject]
         public PostService _service { get; set; }
 
         private const int pageSize = 4;
 
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(int page = 1, bool updated = false)
         {
+            ViewBag.Notification = updated;
+
             var posts = _service.GetPostsPaginated(page, pageSize);
             var postPreviews = new List<PostModel>();
 
@@ -61,48 +63,23 @@ namespace MundiPagg.Blog.WebUI.Controllers
             return View();
         }
 
-        public ActionResult SamplePost()
-        {
-            var posts = _service.GetAll();
-            int postId = 0;
-            Random rnd = new Random();
-            Post post = null;
-
-            while (post == null)
-            {
-                postId = rnd.Next(1, posts.Count());
-                post = _service.GetById(postId);
-            }
-
-            return RedirectToAction("ViewPost", new { postId = post.PostId });
-        }
-
         public ActionResult Contact()
         {
             return View();
         }
 
-        public ActionResult ViewPost(int postId = 0)
+        [HttpPost]
+        public ActionResult SendMail(MailModel model)
         {
-            PostModel model = null;
-            var post = _service.GetById(postId);
+            ViewBag.Success = false;
 
-            if (post != null)
+            if (ModelState.IsValid)
             {
-                var author = post.User.FirstName + " " + post.User.LastName;
-                var month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(post.PublishDate.Month);
-                var date = post.PublishDate.Day + " de " + month + " de " + post.PublishDate.Year;
-
-                model = new PostModel();
-                model.PostId = post.PostId;
-                model.Title = post.Title;
-                model.Summary = post.Summary;
-                model.Content = post.PostContent;
-                model.User = post.User;
-                model.PostedBy = "Postado por " + author + " em " + date;
+                ViewBag.Message = "Obrigado " + model.Name + ". Em breve retornamos seu contato. :)";
+                ViewBag.Success = true;
             }
 
-            return View("Post", model);
+            return View("Contact", model);
         }
     }
 }

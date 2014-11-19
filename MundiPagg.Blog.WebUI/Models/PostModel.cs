@@ -15,5 +15,7 @@ namespace MundiPagg.Blog.WebUI.Models
         public string Content { get; set; }
         public User User { get; set; }
         public string PostedBy { get; set; }
+        public string PublishDate { get; set; }
+        public string EditDate { get; set; }
     }
 }

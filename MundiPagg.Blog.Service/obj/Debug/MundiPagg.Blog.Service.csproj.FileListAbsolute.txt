@@ -1,4 +1,3 @@
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\obj\Debug\MundiPagg.Blog.Service.csprojResolveAssemblyReference.cache
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\bin\Debug\MundiPagg.Blog.Service.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\bin\Debug\MundiPagg.Blog.Service.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\bin\Debug\MundiPagg.Blog.Domain.dll
@@ -10,5 +9,6 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\bin\Debug\MundiPagg.Bl
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\bin\Debug\Ninject.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\bin\Debug\Ninject.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\bin\Debug\EntityFramework.xml
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\obj\Debug\MundiPagg.Blog.Service.csprojResolveAssemblyReference.cache
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\obj\Debug\MundiPagg.Blog.Service.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Service\obj\Debug\MundiPagg.Blog.Service.pdb

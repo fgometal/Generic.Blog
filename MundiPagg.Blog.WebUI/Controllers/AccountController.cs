@@ -104,7 +104,7 @@ namespace MundiPagg.Blog.WebUI.Controllers
                         Email = model.Email,
                         FirstName = model.UserName,
                         LastName = string.Empty,
-                        Password = string.Empty,
+                        //Password = string.Empty,
                         IsAdmin = false,
                         IsActive = true,
                         AboutMe = string.Empty,

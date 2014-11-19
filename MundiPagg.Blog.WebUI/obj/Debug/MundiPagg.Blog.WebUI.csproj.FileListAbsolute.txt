@@ -1,8 +1,10 @@
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\obj\Debug\MundiPagg.Blog.WebUI.csprojResolveAssemblyReference.cache
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.WebUI.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.WebUI.pdb
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.dll
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.Net4.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\EntityFramework.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\EntityFramework.SqlServer.dll
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Infrastructure.Web.Mvc3.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Microsoft.Web.Infrastructure.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Moq.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.Domain.dll
@@ -16,9 +18,11 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\System.Web.Razor.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\System.Web.WebPages.Deployment.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\System.Web.WebPages.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\System.Web.WebPages.Razor.dll
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Infrastructure.Web.Mvc3.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.Domain.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.Repository.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.Service.pdb
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\EntityFramework.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\EntityFramework.SqlServer.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Moq.xml
@@ -30,10 +34,6 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\System.Web.Razor.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\System.Web.WebPages.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\System.Web.WebPages.Deployment.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\System.Web.WebPages.Razor.xml
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\obj\Debug\MundiPagg.Blog.WebUI.csprojResolveAssemblyReference.cache
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\obj\Debug\MundiPagg.Blog.WebUI.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\obj\Debug\MundiPagg.Blog.WebUI.pdb
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Infrastructure.Web.Mvc3.dll
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Infrastructure.Web.Mvc3.pdb
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.dll
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.Net4.dll
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.xml

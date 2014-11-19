@@ -28,23 +28,40 @@ namespace MundiPagg.Blog.WebUI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                null,
-                "Page/{page}",
-                new { Controller = "Home", action = "Index" }
+               null,
+               "Page/{page}",
+               new { Controller = "Home", action = "Index" }
             );
 
             routes.MapRoute(
-                null,
-                "Post/{postId}",
-                new { Controller = "Home", action = "ViewPost" }
+              null,
+              "Post/View/{postId}",
+              new { Controller = "Post", action = "Index" }
             );
+
+            routes.MapRoute(
+               null,
+               "Post/List/{page}",
+               new { Controller = "Post", action = "List" }
+           );
+
+            routes.MapRoute(
+               null,
+               "Post/Edit/{postId}",
+               new { Controller = "Post", action = "Edit" }
+           );
+
+            //  routes.MapRoute(
+            //    null,
+            //    "Post/Delete/{postId}",
+            //    new { Controller = "Post", action = "Delete" }
+            //);
 
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
         }
 
         protected void Application_Start()

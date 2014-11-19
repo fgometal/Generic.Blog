@@ -7,6 +7,7 @@ using Moq;
 using MundiPagg.Blog.Domain.Entities;
 using MundiPagg.Blog.Service;
 using MundiPagg.Blog.WebUI.Controllers;
+using MundiPagg.Blog.WebUI.Models;
 using Ninject;
 
 namespace MundiPagg.Blog.UnitTests.Controllers
@@ -62,11 +63,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
         [TestMethod]
         public void About()
         {
-            Mock<PostService> mock = new Mock<PostService>();
-            mock.Setup(m => m.GetAll()).Returns(posts);
-            //mock.Setup(m => m.GetAll()).Returns(posts.AsQueryable());
             // Arrange
-            //HomeController controller = new HomeController(mock.Object);
             HomeController controller = new HomeController();
 
             // Act
@@ -74,6 +71,50 @@ namespace MundiPagg.Blog.UnitTests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void Contact()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Contact() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void SendMail()
+        {
+            HomeController controller = new HomeController();
+
+            var model = new MailModel
+            {
+                Name = "Name Test",
+                Email = "test@test.com",
+                Phone = "(21)1234-5678",
+                Message = "Message of the mail"
+            };
+            //{"Status":"ok","Message":"Obrigado teste. Em breve retornamos seu contato. :)"}
+            var data = "{ Status: \"ok\" Message: \"Obrigado " + model.Name + ". Em breve retornamos seu contato. :)\" }";
+            var expected = new System.Web.Mvc.JsonResult
+            {
+                Data = data,
+                ContentType = "text/html",
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+
+            var actual = controller.SendMail(model);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CanPaginatePosts()
+        {
         }
 
         #endregion
@@ -102,7 +143,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
             var user = new User
             {
                 Login = "scrooge",
-                Password = "#abc123",
+                //Password = "#abc123",
                 Email = "rich@disney.com",
                 FirstName = "Scrooge",
                 LastName = "McDuck",
@@ -129,7 +170,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
             var user = new User
             {
                 Login = "mmouse",
-                Password = "#abc123",
+                //Password = "#abc123",
                 Email = "mouse@disney.com",
                 FirstName = "Mickey",
                 LastName = "Mouse",
@@ -195,12 +236,27 @@ namespace MundiPagg.Blog.UnitTests.Controllers
             mock.Verify(m => m.Delete(It.IsAny<User>()), Times.Never());
         }
 
+        [TestMethod]
+        public void GetUserByLogin()
+        {
+        }
+
         #endregion
 
         #region PostService Tests
 
         [TestMethod]
         public void GetPosts()
+        {
+        }
+
+        [TestMethod]
+        public void GetPostsPaginated()
+        {
+        }
+
+        [TestMethod]
+        public void GetPostsByUserId()
         {
         }
 
@@ -244,7 +300,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
                 new User {
                     UserId = 1,
                     Login = "mmouse", 
-                    Password = "#abc123", 
+                    //Password = "#abc123", 
                     Email = "mouse@disney.com", 
                     FirstName = "Mickey", 
                     LastName = "Mouse", 
@@ -256,7 +312,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
                 new User {
                     UserId = 2,
                     Login = "dduck", 
-                    Password = "#abc123", 
+                    //Password = "#abc123", 
                     Email = "duck@disney.com", 
                     FirstName = "Donald", 
                     LastName = "Duck", 
@@ -268,7 +324,7 @@ namespace MundiPagg.Blog.UnitTests.Controllers
                 new User {
                     UserId = 3,
                     Login = "goofy", 
-                    Password = "#abc123", 
+                    //Password = "#abc123", 
                     Email = "goofy@disney.com", 
                     FirstName = "Goofy", 
                     LastName = "Duuuhh... Goofy?", 

@@ -11,8 +11,6 @@ C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Repository\bin\Debug\
 C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Repository\bin\Debug\Ninject.xml
 C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Repository\obj\Debug\MundiPagg.Blog.Repository.dll
 C:\Projetos\Testes\MundiPagg\MundiPagg.Blog\MundiPagg.Blog.Repository\obj\Debug\MundiPagg.Blog.Repository.pdb
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\obj\Debug\MundiPagg.Blog.Repository.csprojResolveAssemblyReference.cache
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\obj\Debug\MundiPagg.Blog.Repository.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\bin\Debug\MundiPagg.Blog.Repository.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\bin\Debug\MundiPagg.Blog.Repository.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\bin\Debug\EntityFramework.dll
@@ -26,4 +24,6 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\bin\Debug\EntityFra
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\bin\Debug\Moq.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\bin\Debug\Ninject.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\bin\Debug\Ninject.xml
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\obj\Debug\MundiPagg.Blog.Repository.csprojResolveAssemblyReference.cache
+C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\obj\Debug\MundiPagg.Blog.Repository.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.Repository\obj\Debug\MundiPagg.Blog.Repository.pdb

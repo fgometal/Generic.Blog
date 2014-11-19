@@ -37,6 +37,7 @@ namespace MundiPagg.Blog.Service
         public void Delete(PostCommentary commentary)
         {
             _repository.Delete(commentary);
+            _repository.Save();
         }
     }
 }

@@ -37,6 +37,7 @@ namespace MundiPagg.Blog.Service
         public void Delete(User user)
         {
             _repository.Delete(user);
+            _repository.Save();
         }
 
         public User GetByLogin(string login)
