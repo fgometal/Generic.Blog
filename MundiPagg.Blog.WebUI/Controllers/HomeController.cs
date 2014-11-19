@@ -19,10 +19,8 @@ namespace MundiPagg.Blog.WebUI.Controllers
 
         private const int pageSize = 4;
 
-        public ActionResult Index(int page = 1, bool updated = false)
+        public ActionResult Index(int page = 1)
         {
-            ViewBag.Notification = updated;
-
             var posts = _service.GetPostsPaginated(page, pageSize);
             var postPreviews = new List<PostModel>();
 
@@ -75,8 +73,7 @@ namespace MundiPagg.Blog.WebUI.Controllers
 
             if (ModelState.IsValid)
             {
-                ViewBag.Message = "Obrigado " + model.Name + ". Em breve retornamos seu contato. :)";
-                ViewBag.Success = true;
+                TempData["Notification"] = "Obrigado " + model.Name + ". Em breve retornamos seu contato. :)";
             }
 
             return View("Contact", model);

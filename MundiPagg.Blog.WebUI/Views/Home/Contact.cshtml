@@ -3,8 +3,6 @@
     ViewBag.Title = "Entre em contato!";
 }
 
-<input type="hidden" value="@ViewBag.Success" id="success" />
-
 <!-- Header -->
 <header class="intro-header" style="background-image: url('@Href("~/Content/Bootstrap/img", "contact-bg.jpg")')">
     <div class="container">
@@ -24,6 +22,8 @@
     <div class="row">
         <div class="col-lg-6 col-lg-offset-2 col-md-10 col-md-offset-1">
             <p>@Html.ValidationSummary(true, "Não foi possível enviar a mensagem. Corrija os campos informados e tente novamente.")</p>
+
+             @Html.Partial("_NotificationBlock")
 
             @using (Html.BeginForm("SendMail", "Home", FormMethod.Post))
             {    
@@ -66,10 +66,7 @@
                         </p>
                     </div>
                 </div>
-        
-                <div id="success" style="background-color: rgb(62, 234, 52); padding: 10px;">
-                    <p>@ViewBag.Message</p>
-                </div>
+               
                 <div class="row">
                     <div class="form-group col-xs-12">
                         <button type="submit" class="btn btn-default">Enviar</button>

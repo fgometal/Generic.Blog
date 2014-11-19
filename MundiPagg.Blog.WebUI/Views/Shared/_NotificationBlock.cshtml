@@ -1,0 +1,25 @@
+﻿<script>
+    $(document).ready(function () {
+        if ($('#ModalNotification').css('display') == 'block') {
+            setTimeout(function () {
+                $('#ModalNotification').fadeOut('slow');
+            }, 2000);
+        }
+    });
+</script>
+
+@{
+    var display = "display: none;";
+
+    if (TempData["Notification"] != null)
+    {
+        display = "display: block; background-color: rgb(62, 234, 52); padding: 1px; text-align: center;";
+    }   
+}
+
+<div id="ModalNotification" style="@display">
+    @if (TempData["Notification"] != null)
+    {
+        <p>@TempData["Notification"].ToString()</p>
+    }
+</div>

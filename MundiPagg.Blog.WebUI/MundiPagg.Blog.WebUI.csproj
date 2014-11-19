@@ -532,6 +532,7 @@
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Post\List.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_NotificationBlock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -70,6 +70,8 @@ namespace MundiPagg.Blog.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                var updateMessage = "";
+
                 if (model.PostId == 0)
                 {
                     var post = new Post
@@ -86,8 +88,7 @@ namespace MundiPagg.Blog.WebUI.Controllers
                     };
 
                     _service.Save(post);
-                    //ViewBag.Notification = true;
-                    ViewBag.NotificationMessage = "Post saved!";
+                    TempData["Notification"] = "Seu post foi adicionado com sucesso.";
                 }
                 else
                 {
@@ -103,14 +104,12 @@ namespace MundiPagg.Blog.WebUI.Controllers
                     post.IsActive = true;
 
                     _service.Update(post);
-                    //ViewBag.Notification = true;
-                    ViewBag.NotificationMessage = "Post updated!";
+                    TempData["Notification"] = "Seu post foi alterado com sucesso.";
                 }
 
-                return RedirectToAction("Index", "Home", new { updated = true });
+                return RedirectToAction("Index", "Home");
             }
 
-            //ViewBag.Notification = false;
             return View(model);
         }
 
@@ -161,10 +160,12 @@ namespace MundiPagg.Blog.WebUI.Controllers
             var post = _service.GetById(postId);
 
             if (post != null)
+            {
                 _service.Delete(post);
+                TempData["Notification"] = "Seu post foi excluído com sucesso.";
+            }
 
             return RedirectToAction("List");
-            //return View("List");
         }
     }
 }
