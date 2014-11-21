@@ -1,4 +1,10 @@
-﻿<script>
+﻿@*
+    Partial view para renderização de notificações dinâmicas através do TempData
+    de uma controller para a outra ou entre postbacks. 
+*@
+
+<script>
+    /// Controla a exibição da  notificação e esconde a mesma após 2 segundos.
     $(document).ready(function () {
         if ($('#ModalNotification').css('display') == 'block') {
             setTimeout(function () {
@@ -8,7 +14,9 @@
     });
 </script>
 
+
 @{
+    /// Verificação da TempData e defnição do estilo da caixa de mensagem.
     var display = "display: none;";
 
     if (TempData["Notification"] != null)
@@ -17,6 +25,7 @@
     }   
 }
 
+<!-- Caixa de notificações -->
 <div id="ModalNotification" style="@display">
     @if (TempData["Notification"] != null)
     {

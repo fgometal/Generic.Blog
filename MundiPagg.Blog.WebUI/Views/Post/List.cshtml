@@ -1,6 +1,9 @@
-﻿@using MundiPagg.Blog.WebUI.HtmlHelpers
-@model MundiPagg.Blog.WebUI.Models.IndexViewModel
+﻿@*
+    Listagem de Posts para administração e etc.
+*@
 
+@using MundiPagg.Blog.WebUI.HtmlHelpers
+@model MundiPagg.Blog.WebUI.Models.IndexViewModel
 @{
     ViewBag.Title = "Lista dos seus posts para edição";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -8,12 +11,14 @@
 
 <div class="container" style="margin-top: 60px;">
     <div class="row">
-        <h2>@ViewBag.Title</h2>
-        <br />
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <h2>@ViewBag.Title</h2>
+            <br />
+        </div>
     </div>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
+            <!-- Notificações -->
             @Html.Partial("_NotificationBlock")
 
             @if (Model.Posts.Any())
@@ -22,9 +27,7 @@
                 {
                 <div>
                     @Html.ActionLink("Editar", "Edit", new { postId = @item.PostId })
-                    @Html.ActionLink("Excluir","Delete", new { postId = @item.PostId })
-                    @*<a href="/Post/Edit/@item.PostId">Editar</a> | *@
-                    @*<a href="/Post/Delete/@item.PostId">Excluir</a>*@
+                    @Html.ActionLink("Excluir", "Delete", new { postId = @item.PostId })
                 </div>
                 <div class="post-preview">
                     <a href="/Post/@item.PostId">

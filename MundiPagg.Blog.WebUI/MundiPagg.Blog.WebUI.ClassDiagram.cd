@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Custom Helpers&#xD;&#xA;">
+    <Position X="16.229" Y="1.75" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Models&#xD;&#xA;">
+    <Position X="11.75" Y="1.781" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Injeção de dependência&#xD;&#xA;">
+    <Position X="8.135" Y="2.865" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Controllers&#xD;&#xA;">
+    <Position X="1.188" Y="3.219" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Serviços&#xD;&#xA;">
+    <Position X="2.698" Y="7.99" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Repositório&#xD;&#xA;">
+    <Position X="3.188" Y="12.104" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Interfaces de acesso ao repositório e de instância&#xD;&#xA;">
+    <Position X="9.292" Y="12.385" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Database Context ou a conexão com o banco&#xD;&#xA;">
+    <Position X="8.781" Y="16.594" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Singleton de instância do banco&#xD;&#xA;">
+    <Position X="3.281" Y="16.656" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Domínio da aplicação&#xD;&#xA;">
+    <Position X="8.177" Y="18.365" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Ponto de entrada da aplicação Mvc&#xD;&#xA;">
+    <Position X="4.146" Y="0.542" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="MundiPagg.Blog.WebUI.Controllers.AccountController">
+    <Position X="0.75" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAAAAAAAgAAAAAABAAAEAAAAAAQAIAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Controllers.AjaxController">
+    <Position X="7.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AjaxController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Controllers.HomeController">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <AssociationLine Name="PostService" Type="MundiPagg.Blog.Service.PostService" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.656" Y="7.511" />
+        <Point X="4.656" Y="8.372" />
+        <Point X="5.25" Y="8.372" />
+        <Point X="5.25" Y="9.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.343" Y="0.095" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAUAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAABA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PostService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Controllers.PostController">
+    <Position X="5.5" Y="5.25" Width="1.75" />
+    <AssociationLine Name="PostService" Type="MundiPagg.Blog.Service.PostService" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.344" Y="7.06" />
+        <Point X="6.344" Y="8.394" />
+        <Point X="5.25" Y="8.394" />
+        <Point X="5.25" Y="9.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.163" Y="0.087" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAEAAAACAAEAAAAAAAI=</HashCode>
+      <FileName>Controllers\PostController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PostService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.CustomController.BlogController">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CustomController\BlogController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.CustomSessionControl.SessionHelper">
+    <Position X="16.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAhAAAAAAAAAAAAAACAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CustomSessionControl\SessionHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.MvcApplication">
+    <Position X="6.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAYQAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.HtmlHelpers.PagingHelpers">
+    <Position X="16.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HtmlHelpers\PagingHelpers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Models.ChangePasswordModel">
+    <Position X="13.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Models.LogOnModel">
+    <Position X="13.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAgAAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Models.RegisterModel">
+    <Position X="13.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAQAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Models.EditPostModel">
+    <Position X="11.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAgAAAEEAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EditPostModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Models.IndexViewModel">
+    <Position X="10" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Models.MailModel">
+    <Position X="10" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\MailModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Models.PagingInfoModel">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\PagingInfoModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.WebUI.Models.PostModel">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCBAAAAAgAAAEEACIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PostModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MundiPagg.Blog.Service.PostCommentaryService">
+    <Position X="7" Y="9.25" Width="2" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MundiPagg.Blog.Service.PostService">
+    <Position X="4.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MundiPagg.Blog.Service.UserService">
+    <Position X="1.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MundiPagg.Blog.Repository.BaseRepository&lt;T&gt;">
+    <Position X="11.25" Y="13.5" Width="1.75" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Field Name="DatabaseContext" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.68" />
+  </Class>
+  <Class Name="MundiPagg.Blog.Repository.PostCommentaryRepository">
+    <Position X="6.5" Y="13.5" Width="2.25" />
+    <InheritanceLine Type="MundiPagg.Blog.Repository.BaseRepository&lt;T&gt;" FixedFromPoint="true">
+      <Path>
+        <Point X="12" Y="16.017" />
+        <Point X="12" Y="16.392" />
+        <Point X="7.625" Y="16.392" />
+        <Point X="7.625" Y="14.733" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MundiPagg.Blog.Repository.PostRepository">
+    <Position X="4.5" Y="13.5" Width="1.5" />
+    <InheritanceLine Type="MundiPagg.Blog.Repository.BaseRepository&lt;T&gt;" FixedFromPoint="true">
+      <Path>
+        <Point X="12" Y="16.017" />
+        <Point X="12" Y="16.392" />
+        <Point X="5.25" Y="16.392" />
+        <Point X="5.25" Y="14.733" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MundiPagg.Blog.Repository.UserRepository">
+    <Position X="2.5" Y="13.5" Width="1.5" />
+    <InheritanceLine Type="MundiPagg.Blog.Repository.BaseRepository&lt;T&gt;" FixedFromPoint="true">
+      <Path>
+        <Point X="12" Y="16.017" />
+        <Point X="12" Y="16.392" />
+        <Point X="3.25" Y="16.392" />
+        <Point X="3.25" Y="14.733" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MundiPagg.Blog.Repository.DatabaseContext.BlogDBContext">
+    <Position X="6" Y="17" Width="1.75" />
+    <AssociationLine Name="Users" Type="MundiPagg.Blog.Domain.Entities.User" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.75" Y="18.617" />
+        <Point X="6.75" Y="19.199" />
+        <Point X="4.5" Y="19.199" />
+        <Point X="4.5" Y="20.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Posts" Type="MundiPagg.Blog.Domain.Entities.Post" FixedFromPoint="true">
+      <Path>
+        <Point X="6.75" Y="18.617" />
+        <Point X="6.75" Y="20.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Commentaries" Type="MundiPagg.Blog.Domain.Entities.PostCommentary" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.75" Y="18.617" />
+        <Point X="6.75" Y="19.262" />
+        <Point X="8.719" Y="19.262" />
+        <Point X="8.719" Y="20.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Users" />
+      <Property Name="Posts" />
+      <Property Name="Commentaries" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MundiPagg.Blog.Repository.DatabaseContext.DbInstance">
+    <Position X="1.5" Y="17.25" Width="1.5" />
+    <AssociationLine Name="Instance" Type="MundiPagg.Blog.Repository.DatabaseContext.DbInstance" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.938" Y="18.546" />
+        <Point X="1.938" Y="19.192" />
+        <Point X="2.688" Y="19.192" />
+        <Point X="2.688" Y="18.546" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="0.112" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Instance" />
+      <Property Name="Context" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MundiPagg.Blog.Domain.Entities.Post">
+    <Position X="6" Y="20.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MundiPagg.Blog.Domain.Entities.PostCommentary">
+    <Position X="8.25" Y="20.25" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MundiPagg.Blog.Domain.Entities.User">
+    <Position X="3.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Infrastructure.Web.Mvc3.NinjectDependecyResolver">
+    <Position X="5.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MundiPagg.Blog.Repository.Interfaces.IBaseRepository&lt;T&gt;">
+    <Position X="9.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -4,7 +4,6 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\MundiPagg.
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\EntityFramework.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\EntityFramework.SqlServer.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\Infrastructure.Web.Mvc3.dll
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\Moq.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\MundiPagg.Blog.Domain.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\MundiPagg.Blog.Repository.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\MundiPagg.Blog.Service.dll
@@ -18,7 +17,6 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\MundiPagg.
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\MundiPagg.Blog.WebUI.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\EntityFramework.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\EntityFramework.SqlServer.xml
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\Moq.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\Ninject.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\Ninject.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.UnitTests\bin\Debug\AutoMapper.xml

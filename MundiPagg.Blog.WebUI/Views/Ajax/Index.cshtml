@@ -1,0 +1,95 @@
+﻿@*
+    Formulário com atualziação em ajax.
+*@
+
+@{
+    ViewBag.Title = "Exemplo em ajax";
+}
+
+<!-- Header -->
+<header class="intro-header" style="background-image: url('@Href("~/Content/Bootstrap/img", "home-bg.jpg")')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>@ViewBag.Title</h1>
+                    <hr class="small">
+                    <span class="subheading">Uma página com um exemplo de uso de ajax e Json</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+
+    $(document).ready(function () {
+
+        /// Controla o evento de clique do botão de enviar.
+        /// Obtém os dados dos campos de texto, os transforma em um objeto Json.
+        /// É feita uma requisição GET para a controller que retorna um outro
+        /// objeto Json que é processado pela função de callback desta função.
+        /// Se veio com sucesso, é criada uma tabela com os dados vindos da controller
+        // e essa tabela é então renderizada na div demarcada pela id #ResultJson.
+        $("#GetJsonAction").click(function () {
+
+            /// Url da action
+            var URL = "/Ajax/JsonExample/";
+            /// Objeto Json a ser enviado.
+            var data = { ParamOne: $("#txtFieldOne").val(), ParamTwo: $("#txtFieldTwo").val() };
+
+            $.getJSON(
+                URL,
+                data,
+                function (data) {
+                    var result = "";
+                    /// Cria a tabela.
+                    if (data.Success) {
+                        result += '<table>';
+                        result += '<tr>';
+                        result += '<td colspan=\'2\'>RESULTADO</td>';
+                        result += '<tr>';
+                        result += '<td>Dados do campo 1:</td>';
+                        result += '<td>' + data.ParamOne + '</td>';
+                        result += '</tr>';
+                        result += '<tr>';
+                        result += '<td>Dados do campo 2:</td>';
+                        result += '<td>' + data.ParamTwo + '</td>';
+                        result += '</tr>';
+                        result += '</table>';
+                    }
+                    /// Renderiza na div inidicada.
+                    $("#ResultJson").html(result);
+                });
+        });
+
+    });
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <h2>Formulário que retorna dados em Json</h2>
+            <p>
+                <label>Dados do campo 1:</label>
+                <br />
+                @Html.TextBox("txtFieldOne", "", new { @id = "txtFieldOne" })
+            </p>
+            <p>
+                <label>Dados do campo 2:</label>
+                <br />
+                @Html.TextBox("txtFieldTwo", "", new { @id = "txtFieldTwo" })
+            </p>
+
+            <button type="submit" id="GetJsonAction" class="btn btn-default">Enviar dados</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <br />
+            <br />
+            <!-- Div que recebe a tabela dinâmica gerada pela função getJson. -->
+            <div id="ResultJson"></div>
+        </div>
+    </div>
+</div>

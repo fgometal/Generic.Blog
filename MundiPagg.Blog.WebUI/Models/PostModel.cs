@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MundiPagg.Blog.Domain.Entities;
+﻿using MundiPagg.Blog.Domain.Entities;
 
 namespace MundiPagg.Blog.WebUI.Models
 {
+    /// <summary>
+    /// Classe para a data model de Posts.
+    /// </summary>
     public class PostModel
     {
         public int PostId { get; set; }

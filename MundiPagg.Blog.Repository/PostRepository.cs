@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MundiPagg.Blog.Domain.Entities;
-using MundiPagg.Blog.Repository.Interfaces;
-using MundiPagg.Blog.Repository.DatabaseContext;
+﻿using MundiPagg.Blog.Domain.Entities;
 
 namespace MundiPagg.Blog.Repository
 {
+    /// <summary>
+    /// Classe para repositório de postagens. Herda do repositório de métodos básicos
+    /// passando o tipo Post.
+    /// </summary>
     public class PostRepository : BaseRepository<Post>
     {
     }

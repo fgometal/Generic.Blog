@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MundiPagg.Blog.WebUI.Models
 {
+    /// <summary>
+    /// Classe para a data model de edição de posts.
+    /// </summary>
     public class EditPostModel
     {
         public int PostId { get; set; }

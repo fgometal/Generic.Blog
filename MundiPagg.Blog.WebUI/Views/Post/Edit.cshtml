@@ -1,10 +1,16 @@
-﻿@model MundiPagg.Blog.WebUI.Models.EditPostModel
+﻿@*
+    Edição de post.
+*@
+
+
+@model MundiPagg.Blog.WebUI.Models.EditPostModel
 @{
     ViewBag.Title = Model.PostId == 0 ? "Criar Postagem" : "Editar postagem";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <script>
+    // Inicializa o plugin do Ckeditor
     $(function () {
         $('#txtContent').ckeditor();
     });
@@ -23,7 +29,7 @@
     {
         <div class="row control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
-                @Html.LabelFor(model => model.Title)
+                @Html.LabelFor(model => model.Title)<br />
                 @Html.TextBoxFor(model => model.Title, new { @id = "txtTitle" })
                 <p class="help-block text-danger">
                     @Html.ValidationMessageFor(model => model.Title)
@@ -33,7 +39,7 @@
         
         <div class="row control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
-                @Html.LabelFor(model => model.Summary)
+                @Html.LabelFor(model => model.Summary)<br />
                 @Html.TextBoxFor(model => model.Summary, new { @id = "txtSummary" })
                 <p class="help-block text-danger">
                     @Html.ValidationMessageFor(model => model.Summary)
@@ -43,7 +49,7 @@
         
         <div class="row control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
-                @Html.LabelFor(model => model.Tags)
+                @Html.LabelFor(model => model.Tags)<br />
                 @Html.TextBoxFor(model => model.Tags, new { @id = "txtTags" })
                 <p class="help-block text-danger">
                     @Html.ValidationMessageFor(model => model.Tags)

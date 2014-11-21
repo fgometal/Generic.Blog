@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.ObjectModel;
 
 namespace MundiPagg.Blog.Domain.Entities
 {
+    /// <summary>
+    /// Classe de domínio para Postagem
+    /// </summary>
     [Table("Post")]
     public class Post
     {
@@ -21,9 +21,19 @@ namespace MundiPagg.Blog.Domain.Entities
         public DateTime EditDate { get; set; }
         public bool IsActive { get; set; }
 
+        /// <summary>
+        /// Relaciona postagem com usuário.
+        /// </summary>
         public int UserId { get; set; }
+        /// <summary>
+        /// Propriedade para acesso ao usuário autor do
+        /// post em tempo de execução.
+        /// </summary>
         public virtual User User { get; set; }
-
+        /// <summary>
+        /// Propriedade para acesso de uma coleção de
+        /// comentários do post em tempo de execução.
+        /// </summary>
         public virtual Collection<PostCommentary> Commentaries { get; set; }
     }
 }

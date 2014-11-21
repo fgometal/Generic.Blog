@@ -1,4 +1,7 @@
-﻿<ul class="nav navbar-nav navbar-left">
+﻿@*
+    Partial para exibição dos links de logon e logoff
+*@
+<ul class="nav navbar-nav navbar-left">
     @if(Request.IsAuthenticated) {
         <li><a href="#">Olá @User.Identity.Name</a></li>
         <li>@Html.ActionLink("Sair", "LogOff", "Account")</li>

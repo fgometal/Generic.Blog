@@ -1,4 +1,8 @@
-﻿@model MundiPagg.Blog.WebUI.Models.MailModel
+﻿@*
+    Formulário de contato.
+*@
+
+@model MundiPagg.Blog.WebUI.Models.MailModel
 @{
     ViewBag.Title = "Entre em contato!";
 }
@@ -22,8 +26,8 @@
     <div class="row">
         <div class="col-lg-6 col-lg-offset-2 col-md-10 col-md-offset-1">
             <p>@Html.ValidationSummary(true, "Não foi possível enviar a mensagem. Corrija os campos informados e tente novamente.")</p>
-
-             @Html.Partial("_NotificationBlock")
+            <!-- Notificações --> 
+            @Html.Partial("_NotificationBlock")
 
             @using (Html.BeginForm("SendMail", "Home", FormMethod.Post))
             {    

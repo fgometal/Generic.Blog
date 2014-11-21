@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MundiPagg.Blog.Domain.Entities
 {
+    /// <summary>
+    /// Classe de domínio para representar Usuário
+    /// </summary>
     [Table("User")]
     public class User
     {

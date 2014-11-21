@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace MundiPagg.Blog.Repository.Interfaces
 {
+    /// <summary>
+    /// Interface para o repositório genérico.
+    /// Define um contrato de métodos básicos que todo repositório
+    /// instanciado deve conter.
+    /// </summary>
+    /// <typeparam name="T">A entidade de domínio que define o
+    /// tipo de repositório a ser criado.</typeparam>
     public interface IBaseRepository<T> where T : class
     {
         IQueryable<T> FetchAll { get; }

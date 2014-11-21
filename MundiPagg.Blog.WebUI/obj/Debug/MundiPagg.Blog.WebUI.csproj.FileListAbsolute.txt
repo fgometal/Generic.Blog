@@ -6,7 +6,6 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\EntityFramework.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\EntityFramework.SqlServer.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Infrastructure.Web.Mvc3.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Microsoft.Web.Infrastructure.dll
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Moq.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.Domain.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.Repository.dll
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.Service.dll
@@ -25,7 +24,6 @@ C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\MundiPagg.Blog.Servi
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\AutoMapper.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\EntityFramework.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\EntityFramework.SqlServer.xml
-C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Moq.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Ninject.pdb
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\Ninject.xml
 C:\DotNet\Workspace\MundiPagg.Blog\MundiPagg.Blog.WebUI\bin\System.Web.Helpers.xml

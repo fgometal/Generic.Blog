@@ -1,4 +1,8 @@
-﻿@using MundiPagg.Blog.WebUI.HtmlHelpers
+﻿@*
+    Exibição da página principal do site e dos posts
+*@
+
+@using MundiPagg.Blog.WebUI.HtmlHelpers
 @model MundiPagg.Blog.WebUI.Models.IndexViewModel
 @{
     ViewBag.Title = "MundiPagg Blog";
@@ -22,7 +26,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
+            <!-- Notificações -->
             @Html.Partial("_NotificationBlock")
 
             @if (Model.Posts.Any())

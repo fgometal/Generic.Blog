@@ -1,65 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using MundiPagg.Blog.Domain.Entities;
-using MundiPagg.Blog.Service;
 using MundiPagg.Blog.WebUI.Controllers;
 using MundiPagg.Blog.WebUI.Models;
-using Ninject;
+using MundiPagg.Blog.WebUI.UnitTests.DatabaseContext;
 
 namespace MundiPagg.Blog.UnitTests.Controllers
 {
+    /// <summary>
+    /// Classe de testes para as actions da HomeController.
+    /// </summary>
     [TestClass]
     public class HomeControllerTest
     {
-        [Inject]
-        public UserService _service { get; set; }
-        private List<User> users;
-        private List<Post> posts;
+        #region Tests Initialization
 
+        /// <summary>
+        /// Inicialização que corre antes de cada teste.
+        /// </summary>
         [TestInitialize]
         public void PreTestInitialize()
         {
-            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Directory.GetCurrentDirectory());
-            AddUsers();
-            AddPosts();
+            DatabaseSetup.DatabaseStartUp();
         }
 
-        #region Controller Tests
+        #endregion
 
+        #region Home Controller Tests
+
+        /// <summary>
+        /// Teste para a Index. Verifica se retorna os posts corretamente.
+        /// </summary>
         [TestMethod]
         public void Index()
         {
             // Arrange
-            Mock<PostService> mock = new Mock<PostService>();
-            mock.Setup(m => m.GetAll()).Returns(posts);
-            //mock.Setup(m => m.GetAll()).Returns(posts.AsQueryable());
-
-            //HomeController controller = new HomeController(mock.Object);
             HomeController controller = new HomeController();
-            var pageSize = 3;
+            var page = 1;
+            controller.PostService = DatabaseSetup.PostService;
 
             // Act
-            //IEnumerable<Post> result = (IEnumerable<Post>)controller.List(pageSize).Model;
+            var result = controller.Index(page) as ViewResult;
+            var model = (IndexViewModel)result.ViewData.Model;
 
-
-            //ViewResult result = controller.Index() as ViewResult;
-
-            // Assert
-            //Post[] postArray = result.ToArray();
-            //Assert.IsTrue(postArray.Length == 3);
-            //Assert.AreEqual(postArray[0].Title, "");
-            //Assert.AreEqual(postArray[1].Title, "");
-            //Assert.AreEqual(postArray[2].Title, "");
-
-            //Assert.AreEqual("Welcome to ASP.NET MVC!", result.ViewBag.Message);
-
-            //Assert.IsTrue(expected.SequenceEqual(actual));
+            //Assert
+            PostModel[] postArray = model.Posts.ToArray();
+            Assert.IsTrue(postArray.Length == 4, "Não foi possível obter resultados.");
+            Assert.AreEqual(postArray[0].Title, "Post 1", "Os objetos comparados não correspondem.");
+            Assert.AreEqual(postArray[1].Title, "Post 5", "Os objetos comparados não correspondem.");
+            Assert.AreEqual(postArray[2].Title, "Post 4", "Os objetos comparados não correspondem.");
+            Assert.AreEqual(postArray[3].Title, "Post 3", "Os objetos comparados não correspondem.");
         }
-
+        /// <summary>
+        /// Teste para About. Verifica se não retorna nulo.
+        /// </summary>
         [TestMethod]
         public void About()
         {
@@ -72,7 +70,9 @@ namespace MundiPagg.Blog.UnitTests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-
+        /// <summary>
+        /// Teste para Contact. Verifica se não retorna nulo.
+        /// </summary>
         [TestMethod]
         public void Contact()
         {
@@ -85,7 +85,10 @@ namespace MundiPagg.Blog.UnitTests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-
+        /// <summary>
+        /// Teste para SendMail. Verifica se retorna a mensagem esperada
+        /// no TempData.
+        /// </summary>
         [TestMethod]
         public void SendMail()
         {
@@ -98,257 +101,267 @@ namespace MundiPagg.Blog.UnitTests.Controllers
                 Phone = "(21)1234-5678",
                 Message = "Message of the mail"
             };
-            //{"Status":"ok","Message":"Obrigado teste. Em breve retornamos seu contato. :)"}
-            var data = "{ Status: \"ok\" Message: \"Obrigado " + model.Name + ". Em breve retornamos seu contato. :)\" }";
-            var expected = new System.Web.Mvc.JsonResult
-            {
-                Data = data,
-                ContentType = "text/html",
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet
-            };
 
-            var actual = controller.SendMail(model);
+            var expected = "Obrigado " + model.Name + ". Em breve retornamos seu contato. :)";
+            var result = controller.SendMail(model) as ViewResult;
+            var tempData = controller.TempData["Notification"].ToString();
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, tempData);
         }
-
+        /// <summary>
+        /// Verifica se a action Index consegue paginar corretamente.
+        /// </summary>
         [TestMethod]
         public void CanPaginatePosts()
         {
+            //Arrange
+            var controller = new HomeController();
+            controller.PostService = DatabaseSetup.PostService;
+
+            //Action 
+            var result = controller.Index() as ViewResult;
+            var model = (IndexViewModel)result.ViewData.Model;
+
+            //Assert
+            PostModel[] postArray = model.Posts.ToArray();
+            Assert.IsTrue(postArray.Length == 4, "Não foi possível obter resultados.");
+            Assert.AreEqual(postArray[0].Title, "Post 1", "Os objetos comparados não correspondem.");
+            Assert.AreEqual(postArray[1].Title, "Post 5", "Os objetos comparados não correspondem.");
+            Assert.AreEqual(postArray[2].Title, "Post 4", "Os objetos comparados não correspondem.");
+            Assert.AreEqual(postArray[3].Title, "Post 3", "Os objetos comparados não correspondem.");
         }
 
         #endregion
 
         #region UserService Tests
 
+        /// <summary>
+        /// Verifica se o método GetAll() retorna resultados.
+        /// </summary>
         [TestMethod]
         public void GetUsers()
         {
             //Arrange
-            Mock<UserService> mock = new Mock<UserService>();
-            mock.Setup(m => m.GetAll()).Returns(users);
-
             //Act
-            IEnumerable<User> expected = users;
-            IEnumerable<User> actual = mock.Object.GetAll();
+            IEnumerable<User> result = DatabaseSetup.UserService.GetAll();
 
-            //Assert 
-            CollectionAssert.AreEqual(expected.ToList(), actual.ToList(), "Usuários obtidos com sucesso.");
+            //Assert
+            Assert.IsTrue(result.Count() > 0, "Nenhum resultado obtido.");
         }
-
+        /// <summary>
+        /// Verifica se GetByUserId retorna um usuário.
+        /// </summary>
         [TestMethod]
-        public void CanSaveUser()
+        public void GetUserById()
         {
             //Arrange
-            var user = new User
-            {
-                Login = "scrooge",
-                //Password = "#abc123",
-                Email = "rich@disney.com",
-                FirstName = "Scrooge",
-                LastName = "McDuck",
-                AboutMe = "$$$$$$$$$$$",
-                IsAdmin = false,
-                IsActive = true,
-                DateRegistered = new DateTime(2014, 11, 14)
-            };
-
-            Mock<UserService> mock = new Mock<UserService>();
-            mock.Setup(m => m.Save(user)).Verifiable("Usuário já existe");
+            int userId = DatabaseSetup.UserService.GetAll().First().UserId;
 
             // Act
-            mock.Object.Save(user);
+            var result = DatabaseSetup.UserService.GetById(userId);
 
             //Assert
-            mock.Verify(m => m.Save(user));
+            Assert.IsNotNull(result, "Não foi possível obter usuário.");
         }
-
-        [TestMethod]
-        public void CannotSaveUser()
-        {
-            //Arrange
-            var user = new User
-            {
-                Login = "mmouse",
-                //Password = "#abc123",
-                Email = "mouse@disney.com",
-                FirstName = "Mickey",
-                LastName = "Mouse",
-                AboutMe = "I´m a very badass mice!",
-                IsAdmin = true,
-                IsActive = true,
-                DateRegistered = new DateTime(2014, 11, 14)
-            };
-
-            Mock<UserService> mock = new Mock<UserService>();
-            mock.Setup(m => m.Save(user)).Verifiable("Usuário já existe");
-
-            // Act
-            mock.Object.Save(user);
-
-            //Assert
-            mock.Verify(m => m.Save(user));
-        }
-
-        [TestMethod]
-        public void CanUpdateUser()
-        {
-            //Arrange
-            Mock<UserService> mock = new Mock<UserService>();
-            mock.Setup(m => m.GetById(2)).Returns(users.FirstOrDefault(x => x.UserId == 2));
-
-            //Act
-            var user = mock.Object.GetById(2);
-            user.IsActive = false;
-            mock.Object.Save(user);
-
-            //Assert
-            Assert.AreEqual(user, mock.Object.GetById(user.UserId), "Usuário alterado com sucesso");
-        }
-
-        [TestMethod]
-        public void CanDeleteUser()
-        {
-            //Arrange
-            var user = users.FirstOrDefault(x => x.UserId == 2);            
-            Mock<UserService> mock = new Mock<UserService>();
-            mock.Setup(m => m.Delete(user)).Verifiable("Não foi possível excluir usuário");
-
-            // Act
-            mock.Object.Delete(user);
-
-            //Assert
-            mock.Verify(m => m.Delete(user));
-        }
-
-        [TestMethod]
-        public void CannotDeleteInvalidUser()
-        {
-            //Arrange
-            var user = users.FirstOrDefault(x => x.UserId == 4);
-            Mock<UserService> mock = new Mock<UserService>();
-            mock.Setup(m => m.Delete(user)).Verifiable("Não foi possível excluir usuário");
-
-            // Act
-            mock.Object.Delete(user);
-
-            //Assert
-            mock.Verify(m => m.Delete(It.IsAny<User>()), Times.Never());
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
         [TestMethod]
         public void GetUserByLogin()
         {
+            // Arrange
+            // Act
+            var result = DatabaseSetup.UserService.GetByLogin("userone");
+
+            // Assert
+            Assert.IsNotNull(result, "Não foi possível obter o usuário.");
+        }
+        /// <summary>
+        /// Testa o método de Save.
+        /// </summary>
+        [TestMethod]
+        public void SaveUser()
+        {
+            //Arrange
+            var user = new User
+            {
+                Login = "userfive",
+                Email = "user5@disney.com",
+                FirstName = "User",
+                LastName = "Five",
+                AboutMe = "I´m a dummy user",
+                IsAdmin = false,
+                IsActive = true,
+                DateRegistered = DateTime.Now
+            };
+
+            // Act
+            DatabaseSetup.UserService.Save(user);
+            var actual = DatabaseSetup.UserService.GetAll().FirstOrDefault(x => x.Login == "userfive");
+
+            //Assert
+            Assert.AreEqual("userfive", actual.Login, "Não foi possível salvar o usuário.");
+        }
+        /// <summary>
+        /// Verifica se o método Update consegue atualizar um usuário.
+        /// </summary>
+        [TestMethod]
+        public void UpdateUser()
+        {
+            //Arrange
+            var user = DatabaseSetup.UserService.GetByLogin("usertwo");
+
+            //Act
+            user.IsActive = false;
+            DatabaseSetup.UserService.Update(user);
+            var userUpdated = DatabaseSetup.UserService.GetByLogin("usertwo");
+
+            //Assert
+            Assert.AreEqual(false, userUpdated.IsActive, "Não foi possível alterar o usuário.");
+        }
+        /// <summary>
+        /// Testa o método de Delete. Verifica se é possível excluir um usuário.
+        /// </summary>
+        [TestMethod]
+        public void DeleteUser()
+        {
+            //Arrange
+            var user = DatabaseSetup.UserService.GetByLogin("userthree");
+
+            // Act
+            DatabaseSetup.UserService.Delete(user);
+
+            var userDeleted = DatabaseSetup.UserService.GetByLogin("userthree");
+            //Assert
+            Assert.IsNull(userDeleted, "Não foi possível excluir o usuário.");
         }
 
         #endregion
 
         #region PostService Tests
 
+        /// <summary>
+        /// Verifica se GetAll retorna posts.
+        /// </summary>
         [TestMethod]
         public void GetPosts()
         {
-        }
+            //Arrange
+            //Act
+            IEnumerable<Post> expected = DatabaseSetup.PostService.GetAll();
 
+            //Assert
+            Assert.IsTrue(expected.Count() > 0, "Nenhum resultado obtido.");
+        }
+        /// <summary>
+        /// Verifica GetById se é possível retornar um post.
+        /// </summary>
         [TestMethod]
-        public void GetPostsPaginated()
+        public void GetPostById()
         {
-        }
+            //Arrange
+            int postId = DatabaseSetup.PostService.GetAll().First().PostId;
 
+            // Act
+            var result = DatabaseSetup.PostService.GetById(postId);
+
+            //Assert
+            Assert.IsNotNull(result, "Não foi possível obter o post.");
+        }
+        /// <summary>
+        /// Testa Save. Se é possível adicionar um post.
+        /// </summary>
         [TestMethod]
-        public void GetPostsByUserId()
+        public void SavePost()
         {
-        }
+            //Arrange
+            var post = new Post
+            {
+                Commentaries = new Collection<PostCommentary>(),
+                EditDate = new DateTime(2014, 11, 20),
+                IsActive = true,
+                PostContent = "Content",
+                PublishDate = new DateTime(2014, 11, 20),
+                Summary = "Summary",
+                Tags = "tags",
+                Title = "Post 6",
+                User = DatabaseSetup.UserService.GetByLogin("userfour")
+            };
 
+            // Act
+            DatabaseSetup.PostService.Save(post);
+            var actual = DatabaseSetup.PostService.GetAll().FirstOrDefault(x => x.Title == "Post 6");
+
+            //Assert
+            Assert.AreEqual("Post 6", actual.Title, "Não foi possível salvar o post.");
+        }
+        /// <summary>
+        /// Verifica Update. Testa a atualização de post.
+        /// </summary>
         [TestMethod]
-        public void AddPost()
+        public void UpdatePost()
         {
-        }
+            //Arrange
+            var post = DatabaseSetup.PostService.GetAll().FirstOrDefault(x => x.Title == "Post 1");
 
-        [TestMethod]
-        public void EditPost()
-        {
-        }
+            //Act
+            post.PostContent = "Modified";
+            DatabaseSetup.PostService.Update(post);
+            var postUpdated = DatabaseSetup.PostService.GetAll().FirstOrDefault(x => x.Title == "Post 1");
 
+            //Assert
+            Assert.AreEqual("Modified", postUpdated.PostContent, "Não foi possível alterar o post.");
+        }
+        /// <summary>
+        /// Testa Delete. Verifica se é possíve excluir um post.
+        /// </summary>
         [TestMethod]
         public void DeletePost()
         {
-        }
+            //Arrange
+            var post = DatabaseSetup.PostService.GetAll().FirstOrDefault(x => x.Title == "Post 1");
 
-        [TestMethod]
-        public void AddCommentToPost()
-        {
-        }
+            // Act
+            DatabaseSetup.PostService.Delete(post);
 
-        [TestMethod]
-        public void EditCommentOnPost()
-        {
+            var postDeleted = DatabaseSetup.PostService.GetAll().FirstOrDefault(x => x.Title == "Post 1");
+            //Assert
+            Assert.IsNull(postDeleted, "Não foi possível excluir o post.");
         }
-
+        /// <summary>
+        /// Testa GetPostsPaginated. Verifica se retorna resultados.
+        /// </summary>
         [TestMethod]
-        public void DeleteCommentFromPost()
+        public void GetPostsPaginated()
         {
+            //Arrange
+            var page = 1;
+            var pageSize = 4;
+
+            // Act
+            var posts = DatabaseSetup.PostService.GetPostsPaginated(page, pageSize);
+
+            // Assert
+            Assert.IsTrue(posts.Count() > 0, "Nenhum resultado obtido.");
+        }
+        /// <summary>
+        /// Testa GetPostsByUserId. Verifica se é possível obter posts por usuário.
+        /// </summary>
+        [TestMethod]
+        public void GetPostsByUserId()
+        {
+            //Arrange
+            var page = 1;
+            var pageSize = 4;
+            var userId = DatabaseSetup.UserService.GetAll().FirstOrDefault(x => x.Login == "userone").UserId;
+
+            // Act
+            var posts = DatabaseSetup.PostService.GetPostsByUserId(page, pageSize, userId);
+
+            // Assert
+            Assert.IsTrue(posts.Count() > 0, "Nenhum resultado obtido.");
         }
 
         #endregion
-
-        #region Test Initializers
-
-        private void AddUsers()
-        {
-            users = new List<User> {
-                new User {
-                    UserId = 1,
-                    Login = "mmouse", 
-                    //Password = "#abc123", 
-                    Email = "mouse@disney.com", 
-                    FirstName = "Mickey", 
-                    LastName = "Mouse", 
-                    AboutMe = "I´m a very badass mice!", 
-                    IsAdmin = true,
-                    IsActive = true,
-                    DateRegistered = new DateTime(2014, 11, 14)
-                },
-                new User {
-                    UserId = 2,
-                    Login = "dduck", 
-                    //Password = "#abc123", 
-                    Email = "duck@disney.com", 
-                    FirstName = "Donald", 
-                    LastName = "Duck", 
-                    AboutMe = "Quaaaaack! Quaaaa-quaaaaackk!!!", 
-                    IsAdmin = false,
-                    IsActive = true,
-                    DateRegistered = new DateTime(2014, 11, 12)
-                },
-                new User {
-                    UserId = 3,
-                    Login = "goofy", 
-                    //Password = "#abc123", 
-                    Email = "goofy@disney.com", 
-                    FirstName = "Goofy", 
-                    LastName = "Duuuhh... Goofy?", 
-                    AboutMe = "Yo hooo?!", 
-                    IsAdmin = false,
-                    IsActive = true,
-                    DateRegistered = new DateTime(2014, 11, 12)
-                }
-            };
-        }
-
-        private void AddPosts()
-        {
-            posts = new List<Post>();
-        }
-
-        #endregion
-        // Anotações... 
-        //Assert.IsTrue(expected.SequenceEqual(actual));
-
-        //mock.Setup(m => m.ProcessSomething("param")).Retrurns("Result based on param");
-
-        //foreach (Product p in products) {
-        //  mock.Verify(m => m.UpdateProduct(p), Times.Once());
-        //}
     }
 }

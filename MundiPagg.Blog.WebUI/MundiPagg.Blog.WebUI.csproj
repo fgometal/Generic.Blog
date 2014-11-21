@@ -57,9 +57,6 @@
       <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.0.10827\NET40\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Ninject-3.2.0.0-release-net-4.5\Ninject.dll</HintPath>
@@ -116,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="CustomController\BlogController.cs" />
@@ -412,8 +410,6 @@
     <Content Include="Content\Ckeditor\skins\moono\images\lock.png" />
     <Content Include="Content\Ckeditor\skins\moono\images\refresh.png" />
     <Content Include="Content\Ckeditor\styles.js" />
-    <Content Include="Content\Lightbox\bootstrap-lightbox.css" />
-    <Content Include="Content\Lightbox\bootstrap-lightbox.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -485,6 +481,7 @@
     <Content Include="Content\Ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="Content\Ckeditor\samples\sample_posteddata.php" />
     <Content Include="Content\Ckeditor\skins\moono\readme.md" />
+    <Content Include="MundiPagg.Blog.WebUI.ClassDiagram.cd" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -526,13 +523,13 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Home\Post.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Post\Index.cshtml" />
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Post\List.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\_NotificationBlock.cshtml" />
+    <Content Include="Views\Ajax\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

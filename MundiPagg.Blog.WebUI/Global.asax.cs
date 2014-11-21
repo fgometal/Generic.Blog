@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 using Infrastructure.Web.Mvc3;
-using MundiPagg.Blog.Domain.Entities;
-using MundiPagg.Blog.Service;
 using Ninject;
 
 namespace MundiPagg.Blog.WebUI
@@ -27,35 +19,30 @@ namespace MundiPagg.Blog.WebUI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Home, exibição dos posts paginada
             routes.MapRoute(
                null,
                "Page/{page}",
                new { Controller = "Home", action = "Index" }
             );
-
+            // Visualizar post
             routes.MapRoute(
               null,
               "Post/View/{postId}",
               new { Controller = "Post", action = "Index" }
             );
-
+            // Listar posts do usuário paginado
             routes.MapRoute(
                null,
                "Post/List/{page}",
                new { Controller = "Post", action = "List" }
            );
-
+            // Edição / criação de posts
             routes.MapRoute(
                null,
                "Post/Edit/{postId}",
                new { Controller = "Post", action = "Edit" }
            );
-
-            //  routes.MapRoute(
-            //    null,
-            //    "Post/Delete/{postId}",
-            //    new { Controller = "Post", action = "Delete" }
-            //);
 
             routes.MapRoute(
                 "Default", // Route name
@@ -67,7 +54,6 @@ namespace MundiPagg.Blog.WebUI
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            //AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Directory.GetCurrentDirectory());
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
             SetupDependencyInjection();
@@ -76,7 +62,10 @@ namespace MundiPagg.Blog.WebUI
         #region Dependency Injection
 
         /// <summary>
-        /// 
+        /// Inicialização da classe de controle da injeção de dependência.
+        /// Passa-se uma instância do kernel do Ninject para a classe de controle
+        /// e em seguida uma nova instância dessa classe para o método 
+        /// DependencyResolver.SetResolver
         /// </summary>
         public void SetupDependencyInjection()
         {
