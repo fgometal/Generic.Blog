@@ -87,8 +87,11 @@ namespace MundiPagg.Blog.Service
         /// do usuário especificado.</returns>
         public List<Post> GetPostsByUserId(int page, int pageSize, int userId)
         {
-            return GetPostsPaginated(page, pageSize)
+            return GetAll()
+                .OrderByDescending(post => post.PublishDate)
                 .Where(post => post.User.UserId == userId)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToList();
         }
     }

@@ -25,9 +25,9 @@
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <p>
-            Passwords are required to be a minimum of @Membership.MinRequiredPasswordLength characters in length.
+            Senhas precisam conter no mínimo @Membership.MinRequiredPasswordLength caracteres.
         </p>
-        @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.")
+        @Html.ValidationSummary(true, "Criação de conta falhou. Verifique os erros e tente novamente.")
     </div>
 
     @using (Html.BeginForm())
